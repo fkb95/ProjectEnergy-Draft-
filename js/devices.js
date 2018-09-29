@@ -1,4 +1,7 @@
+var last = 0;
+
 $("#Devices").ready(function(){
+    last = 0;
     getDevices();
     getBrandsForDevice();
 });
@@ -16,7 +19,7 @@ function btn_insertDeviceClick(){
 
 function getBrandsForDevice(){
     $.ajax({
-        url:"php/getBrands.php",
+        url:"phpc/getBrands.php",
         type:"GET",
         success: function(res){
             res = JSON.parse(res);
@@ -34,7 +37,7 @@ function getBrandsForDevice(){
 
 function getCategories(){
     $.ajax({
-        url:"php/getCategories.php",
+        url:"phpc/getCategories.php",
         type:"GET",
         success: function(res){
             res = JSON.parse(res);
@@ -50,20 +53,30 @@ function getCategories(){
     });
 };
 
-function getDevices(){
+function swap(){
     $("#pe_products").addClass("animated fadeOut");
     $("#pe_products").remove();
-    $("#pe_device_container").append('<div id="pe_products" class="row"></div>');    
+    $("#pe_device_container").append('<div id="pe_products" class="row"></div>');
+}
+
+function getDevices(haveToSwap){
+    
+    if(haveToSwap){
+        swap();
+    }
+    
     $.ajax({
-        url:"php/getDevices.php",
+        url:"phpc/getDevices.php",
         type:"GET",
         cache: false,
+        data:{last: last},
         success: function(res){
             res = JSON.parse(res);
             if(res.length>0){
                 $.each(res, function(index,row){
                     $("#pe_products").append(buildCard(row));
                 });
+		stamp = 0;
             }else{
                 $("#pe_products").append('<h4>No products here... :( </h4>');
             }            
@@ -80,7 +93,7 @@ function getDeviceByID(deviceid){
     var data = {"deviceid": deviceid};
     //data = JSON.stringify(data);
     $.ajax({
-        url:"php/getDeviceByID.php",
+        url:"phpc/getDeviceByID.php",
         type:"POST",
         data: data,
         success: function(res){            
@@ -94,6 +107,18 @@ function getDeviceByID(deviceid){
                         '<p class="modal-title">'+res.Brand+' '+res.Name+'</p>'+
                     '</div>'+
                     '<div class="row modal-table-container">'+
+                        '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">'+
+                            '<div class="table-container">'+
+                                '<div class="table-element table-element-name field">Name</div>'+
+                                '<div class="table-element table-element-desc value">'+res.Name+'</div>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">'+
+                            '<div class="table-container">'+
+                                '<div class="table-element table-element-name field">Description</div>'+
+                                '<div class="table-element table-element-desc value">'+res.Description+'</div>'+
+                            '</div>'+
+                        '</div>'+
                         '<div class="col-xs-12 col-sm-6 no-padding">'+
                             '<div class="table-container">'+
                                 '<div class="table-element field">Category</div>'+
@@ -105,19 +130,7 @@ function getDeviceByID(deviceid){
                                 '<div class="table-element field">Brand</div>'+
                                 '<div class="table-element value">'+res.Brand+'</div>'+
                             '</div>'+
-                        '</div>'+
-                        '<div class="col-xs-12 col-sm-6 no-padding">'+
-                            '<div class="table-container">'+
-                                '<div class="table-element field">Name</div>'+
-                                '<div class="table-element value">'+res.Name+'</div>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="col-xs-12 col-sm-6 no-padding">'+
-                            '<div class="table-container">'+
-                                '<div class="table-element field">Description</div>'+
-                                '<div class="table-element value">'+res.Description+'</div>'+
-                            '</div>'+
-                        '</div>'+
+                        '</div>'+                        
                         '<div class="col-xs-12 col-sm-6 no-padding">'+
                             '<div class="table-container">'+
                                 '<div class="table-element field">Consumption</div>'+
@@ -184,7 +197,7 @@ function getDevicesByTextSearch(searchstring){
     $("#pe_device_container").append('<div id="pe_products" class="row"></div>');
     var data = {"searchstring": searchstring};
     $.ajax({
-        url:"php/getDevicesByTextSearch.php",
+        url:"phpc/getDevicesByTextSearch.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -229,7 +242,7 @@ function insertDevice(){
         "resistence" : resistence
     };
     $.ajax({
-        url:"php/insertDevice.php",
+        url:"phpc/insertDevice.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -246,7 +259,7 @@ function insertDevice(){
 function deleteDeviceByID(deviceid){
     var data = { "deviceid" : deviceid};
     $.ajax({
-        url:"php/deleteDeviceByID.php",
+        url:"phpc/deleteDeviceByID.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -323,5 +336,6 @@ function buildCard(device){
                         '</div>'+
                     '</div>'+
                 '</div>';
+    last++;
     return card;
 }

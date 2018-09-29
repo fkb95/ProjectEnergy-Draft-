@@ -9,7 +9,7 @@ function btn_insertBrandClick(){
 
 function getBrands(){
     $.ajax({
-        url:"php/getBrands.php",
+        url:"phpc/getBrands.php",
         type:"GET",
         success: function(res){
             res = JSON.parse(res);
@@ -31,7 +31,7 @@ function getBrandsByTextSearch(searchstring){
     $("#pe_brands_container").append('<div id="pe_brands" class="row row-brand-container"></div>');
     var data = {"searchstring": searchstring};
     $.ajax({
-        url:"php/getBrandsByTextSearch.php",
+        url:"phpc/getBrandsByTextSearch.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -59,7 +59,7 @@ function insertBrand(){
         "webs" : document.getElementById("webs").value
     };
     $.ajax({
-        url:"php/insertBrand.php",
+        url:"phpc/insertBrand.php",
         type:"POST",
         data: data,
         success: function(res){
