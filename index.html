@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Project Energy</title>
+        <link rel="icon" href="src/img/favicon.png"/>
+        <meta name="description" content=""> 
+        <meta name="keywords" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#1A1A1A" />
+        <!--Mobile-->
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=si" />
+        <link rel="shortcut icon" sizes="192x192" href="">
+        <link rel="apple-touch-startup-image" href="">       
+        <!--CSS-->        
+        <link href="css/bootstrap.min.css" rel="stylesheet" />        
+        <link href="css/font-awesome.min.css" rel="stylesheet">        
+        <link href="css/hover.css" rel="stylesheet" />
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" />
+        <!--<link href="css/palette.css" rel="stylesheet">
+        <link href="css/opensans.css" rel="stylesheet"/>
+            MATERIALBOOTSTRAP
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+            <link rel="stylesheet" href="css/material-fonts.css" type="text/css">
+            <link href="css/bootstrap-material-design.css" rel="stylesheet" />
+            <link href="css/ripples.min.css" rel="stylesheet" />
+            -->
+        <!--JS-->
+        <link href="css/custom.css" rel="stylesheet">
+        <link rel="stylesheet" href="Fonts/stylesheet.css" type="text/css" charset="utf-8" />
+        
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/projectenergy.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand"><i class="fa fa-power-off fa-fw"></i> Project Energy</a>
+                <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+                <ul class="nav navbar-nav navbar-collapse collapse" role="tablist"  id="navbar-main">
+                    <li class="active"><a href="#Home" aria-controls="Devices" role="tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                    <li><a href="#Brands" aria-controls="Brands" role="tab" data-toggle="tab"><i class="fa fa-search fa-fw"></i> Brands</a></li>
+                    <li id="li_devices"><a href="#Devices" aria-controls="Devices" role="tab" data-toggle="tab"><i class="fa fa-hdd-o fa-fw"></i> Devices</a></li>
+                    <li><a href="#internal" aria-controls="internal" role="tab" data-toggle="tab"><i class="fa fa-hdd-o fa-fw"></i> (PE)internal</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="content">
+            <div class="header-container">
+                <h1 class="header-logo">ProjectEnergy</h1>
+            </div>
+            <div class="tab-content">
+                <!-- HOME -->
+                <div role="tabpanel" class="tab-pane active animated fadeIn text-center" id="Home"></div>
+                <!-- SCAN -->
+                <div role="tabpanel" class="tab-pane animated fadeIn text-center" id="Brands"></div>
+                <!-- DEVICES -->
+                <div role="tabpanel" class="tab-pane  animated fadeIn text-center" id="Devices"></div>
+                <!-- PE -->
+                <div role="tabpanel" class="tab-pane  animated fadeIn text-center" id="internal"></div>
+            </div>
+        </div>		
+    </body>
+</html>

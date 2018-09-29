@@ -1,0 +1,365 @@
+/* line 10, custom.scss */
+.no-padding {
+  padding: 0px;
+}
+
+/* line 14, custom.scss */
+body {
+  background: #1A1A1A;
+  font-family: "open_sanslight";
+}
+
+/* Header */
+/* line 20, custom.scss */
+.header-container {
+  text-align: center;
+}
+
+/* line 24, custom.scss */
+.header-logo {
+  font-size: 100px;
+  color: grey;
+  line-height: 260px;
+}
+
+@media screen and (max-width: 768px) {
+  /* line 31, custom.scss */
+  .header-logo {
+    line-height: 200px;
+    font-size: 50px;
+  }
+}
+/* line 37, custom.scss */
+.search-header {
+  width: 100%;
+  height: 80px;
+  border: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #3A3A3A;
+  border-radius: 5px;
+  outline: none;
+  font-size: 23px;
+  color: #6B6B6B;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 61, custom.scss */
+.search-header:focus {
+  color: white;
+  -webkit-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Griglia Card */
+/* line 69, custom.scss */
+.card-container {
+  background-color: #707070;
+  color: #707070;
+}
+
+/* line 73, custom.scss */
+.computer {
+  background-color: #a80000;
+  color: #a80000;
+}
+
+/* line 77, custom.scss */
+.electronic {
+  background-color: #198c3d;
+  color: #198c3d;
+}
+
+/* line 81, custom.scss */
+.console {
+  background-color: #2c26ab;
+  color: #2c26ab;
+}
+
+/* line 85, custom.scss */
+.card {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  padding-bottom: 30px;
+  text-align: center;
+  background-color: white;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* line 100, custom.scss */
+.card-title {
+  font-size: 25px;
+}
+
+/* line 104, custom.scss */
+.card-divider-big {
+  width: 100%;
+  height: 2px;
+  margin-top: 16px;
+}
+
+/* line 110, custom.scss */
+.card-info {
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+/* line 115, custom.scss */
+.card-divider-small {
+  width: 80%;
+  margin-left: 10%;
+  height: 1px;
+  margin-top: 10px;
+}
+
+/* line 122, custom.scss */
+.card-button {
+  margin-top: 25px;
+  font-size: 15px;
+  padding: 10px;
+  border: 0px;
+  color: white;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 136, custom.scss */
+.card-button:focus {
+  outline: none;
+}
+
+/* line 140, custom.scss */
+.card-button:hover {
+  background-color: rgba(0, 0, 0, 0.51);
+}
+
+/* Floating Button */
+/* line 145, custom.scss */
+.floating-button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 65px;
+  height: 65px;
+  background: yellow;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  border-radius: 50%;
+  font-family: "open_sansregular";
+  cursor: pointer;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 170, custom.scss */
+.floating-button:hover {
+  -webkit-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (min-width: 1200px) {
+  /* line 179, custom.scss */
+  .floating-button {
+    right: 7%;
+  }
+}
+/* line 184, custom.scss */
+.floating-button-text {
+  font-size: 30px;
+}
+
+/* Modals*/
+/* line 189, custom.scss */
+.modal-content {
+  border-radius: 3px;
+}
+
+/* line 193, custom.scss */
+.modal-content.product {
+  padding: 0px;
+  text-align: center;
+}
+
+/* line 198, custom.scss */
+.modal-content.add-product {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 205, custom.scss */
+.modal-header-custom {
+  width: 100%;
+  height: 90px;
+}
+
+/* line 210, custom.scss */
+.modal-title {
+  font-size: 30px;
+  line-height: 80px;
+}
+
+/* Tabella Modal Product*/
+/* line 216, custom.scss */
+.modal-table-container {
+  border-top: 2px solid #707070;
+  border-bottom: 2px solid #707070;
+}
+
+/* line 220, custom.scss */
+.table-container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-grow: 0;
+  -webkit-flex-grow: 0;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  width: 100%;
+}
+
+/* line 228, custom.scss */
+.table-element {
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 50%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* line 238, custom.scss */
+.table-element.field {
+  background-color: #dadada;
+}
+
+/* line 242, custom.scss */
+.table-element.value {
+  background-color: #f4f4f4;
+}
+
+/* line 247, custom.scss */
+.modal-body-custom {
+  width: 100%;
+}
+
+/* line 251, custom.scss */
+.modal-input-text {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #707070;
+  transition: border 0.3s;
+  margin-bottom: 30px;
+}
+
+/* line 260, custom.scss */
+.modal-input-text:focus {
+  border-bottom: solid 2px #3d3d3d;
+  outline: none;
+}
+
+/* line 265, custom.scss */
+.modal-input-select {
+  width: 100%;
+  border: 0px;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #707070;
+  transition: border 0.3s;
+  background-color: white;
+  border-radius: 0px;
+  margin-bottom: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 282, custom.scss */
+.modal-input-select:focus {
+  outline: none;
+  border-bottom: solid 2px #3d3d3d;
+}
+
+/* line 288, custom.scss */
+.modal-footer-custom {
+  width: 100%;
+}
+
+/* line 292, custom.scss */
+.modal-button {
+  font-size: 15px;
+  background-color: #707070;
+  padding: 10px;
+  border: 0px;
+  color: white;
+  border-radius: 2px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 308, custom.scss */
+.modal-button:focus {
+  outline: none;
+}
+
+/* line 312, custom.scss */
+.modal-button.cancel {
+  background-color: #c70000;
+}
+
+/* line 316, custom.scss */
+.modal-button.cancel:hover {
+  background-color: #610000;
+}
+
+/* line 320, custom.scss */
+.modal-button.confirm {
+  position: absolute;
+  right: 0px;
+  margin-right: 16px;
+}
+
+/* line 326, custom.scss */
+.modal-button.confirm:hover {
+  background-color: #3d3d3d;
+}
+
+/* Small Devices, Tablets */
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */

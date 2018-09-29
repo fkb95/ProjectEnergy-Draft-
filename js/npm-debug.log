@@ -1,0 +1,54 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'nodemon' ]
+2 info using npm@2.14.12
+3 info using node@v4.3.2
+4 verbose install initial load of C:\Users\Francesco\AppData\Roaming\npm\package.json
+5 verbose readDependencies loading dependencies from C:\Users\Francesco\AppData\Roaming\npm\package.json
+6 silly cache add args [ 'nodemon', null ]
+7 verbose cache add spec nodemon
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'nodemon',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'nodemon',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed nodemon@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for nodemon
+11 info addNameTag [ 'nodemon', 'latest' ]
+12 silly mapToRegistry name nodemon
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/nodemon
+16 verbose addNameTag registry:https://registry.npmjs.org/nodemon not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/nodemon
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 20:30:42
+20 verbose request id 86c7d32f2c4210b4
+21 http request GET https://registry.npmjs.org/nodemon
+22 info retry will retry, error on last attempt: Error: unable to verify the first certificate
+23 info attempt registry request try #2 at 20:30:53
+24 http request GET https://registry.npmjs.org/nodemon
+25 info retry will retry, error on last attempt: Error: unable to verify the first certificate
+26 info attempt registry request try #3 at 20:31:53
+27 http request GET https://registry.npmjs.org/nodemon
+28 verbose stack Error: unable to verify the first certificate
+28 verbose stack     at Error (native)
+28 verbose stack     at TLSSocket.<anonymous> (_tls_wrap.js:1016:38)
+28 verbose stack     at emitNone (events.js:67:13)
+28 verbose stack     at TLSSocket.emit (events.js:166:7)
+28 verbose stack     at TLSSocket._finishInit (_tls_wrap.js:585:8)
+29 verbose cwd C:\xampp\htdocs\projectenergy\js
+30 error Windows_NT 10.0.10240
+31 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "nodemon"
+32 error node v4.3.2
+33 error npm  v2.14.12
+34 error code UNABLE_TO_VERIFY_LEAF_SIGNATURE
+35 error unable to verify the first certificate
+36 error If you need help, you may report this error at:
+36 error     <https://github.com/npm/npm/issues>
+37 verbose exit [ 1, true ]

@@ -1,0 +1,340 @@
+
+$primary-color: rgb(112, 112, 112);
+$computer-color: rgb(168, 0, 0);
+$electronic-color: rgb(25, 140, 61);
+$console-color: rgb(44, 38, 171);
+
+$basic-shadow:  0px 3px 10px 0px rgba(0,0,0,0.75);
+$long-shadow:  0px 3px 25px 0px rgba(0,0,0,0.75);
+
+.no-padding{
+  padding: 0px;
+}
+
+body {
+  background: #1A1A1A;
+  font-family: "open_sanslight";
+}
+
+/* Header */
+.header-container {
+  text-align: center;
+}
+
+  .header-logo {
+    font-size: 100px;
+    color: grey;
+    line-height: 260px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header-logo {
+      line-height: 200px;
+      font-size: 50px;
+    }
+  }
+
+  .search-header {
+    width: 100%;
+    height: 80px;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #3A3A3A;
+    border-radius: 5px;
+    outline: none;
+    font-size: 23px;
+    color: #6B6B6B;
+    margin-bottom: 30px;
+
+    -webkit-box-shadow: $basic-shadow;
+    -moz-box-shadow: $basic-shadow;
+    box-shadow: $basic-shadow;
+
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+  }
+
+  .search-header:focus {
+    color: white;
+    -webkit-box-shadow: $long-shadow;
+    -moz-box-shadow: $long-shadow;
+    box-shadow: $long-shadow;
+  }
+
+/* Griglia Card */
+.card-container {
+  background-color: $primary-color;
+  color: $primary-color;
+}
+.computer {
+  background-color: $computer-color;
+  color: $computer-color;
+}
+.electronic{
+  background-color: $electronic-color;
+  color: $electronic-color;
+}
+.console{
+  background-color: $console-color;
+  color: $console-color;
+}
+  .card {
+      width: 100%;
+      height: 100%;
+      padding: 50px;
+      padding-bottom: 30px;
+      text-align: center;
+      background-color: white;
+      border-radius: 2px;
+      margin-bottom: 30px;
+
+      -webkit-box-shadow: $basic-shadow;
+      -moz-box-shadow: $basic-shadow;
+      box-shadow: $basic-shadow;
+  }
+
+    .card-title{
+      font-size: 25px;
+    }
+
+    .card-divider-big{
+      width: 100%;
+      height: 2px;
+      margin-top: 16px;
+    }
+
+    .card-info{
+      font-size: 15px;
+      margin-top: 15px;
+    }
+
+    .card-divider-small{
+      width: 80%;
+      margin-left: 10%;
+      height: 1px;
+      margin-top: 10px;
+    }
+
+    .card-button{
+      margin-top: 25px;
+      font-size: 15px;
+      padding:10px;
+      border: 0px;
+      color: white;
+      border-radius: 2px;
+      -webkit-transition: all 0.3s linear;
+      -o-transition: all 0.3s linear;
+      -moz-transition: all 0.3s linear;
+      -ms-transition: all 0.3s linear;
+      transition: all 0.3s linear;
+    }
+
+    .card-button:focus{
+      outline: none;
+    }
+
+    .card-button:hover{
+      background-color: darken( rgba(0, 0, 0, 0.51), 20% );
+    }
+
+/* Floating Button */
+.floating-button{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 65px;
+  height: 65px;
+  background: yellow;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  border-radius: 50%;
+  font-family: "open_sansregular";
+  cursor: pointer;
+
+  -webkit-box-shadow: $basic-shadow;
+  -moz-box-shadow: $basic-shadow;
+  box-shadow: $basic-shadow;
+
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.floating-button:hover {
+  -webkit-box-shadow: $long-shadow;
+  -moz-box-shadow: $long-shadow;
+  box-shadow: $long-shadow;
+}
+
+
+
+@media screen and (min-width: 1200px) {
+  .floating-button{
+    right: 7%;
+  }
+}
+
+  .floating-button-text{
+    font-size: 30px;
+  }
+
+/* Modals*/
+.modal-content {
+    border-radius: 3px;
+}
+
+.modal-content.product {
+    padding: 0px;
+    text-align: center;
+}
+
+.modal-content.add-product {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+  .modal-header-custom{
+    width: 100%;
+    height: 90px;
+  }
+
+  .modal-title{
+    font-size: 30px;
+    line-height:80px;
+  }
+
+  /* Tabella Modal Product*/
+  .modal-table-container{
+    border-top: 2px solid $primary-color;
+    border-bottom: 2px solid $primary-color;
+  }
+    .table-container{
+      display: flex;           display: -webkit-flex;
+      flex-direction: row;     -webkit-flex-direction: row;
+      flex-grow: 0;            -webkit-flex-grow: 0;
+      flex-wrap: wrap;         -webkit-flex-wrap: wrap;
+      width: 100%;
+    }
+
+      .table-element{
+        flex-grow: 1;            -webkit-flex-grow: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 50%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .table-element.field{
+        background-color: #dadada;
+      }
+
+      .table-element.value{
+        background-color: #f4f4f4;
+      }
+
+
+  .modal-body-custom{
+    width: 100%;
+  }
+
+    .modal-input-text{
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: solid 2px $primary-color;
+      transition: border 0.3s;
+      margin-bottom: 30px;
+    }
+
+    .modal-input-text:focus{
+      border-bottom: solid 2px darken( $primary-color, 20% );
+      outline: none;
+    }
+
+    .modal-input-select{
+      width: 100%;
+      border: 0px;
+      padding: 10px;
+      border: none;
+      border-bottom: solid 2px $primary-color;
+      transition: border 0.3s;
+      background-color: white;
+      border-radius: 0px;
+      margin-bottom: 30px;
+
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+
+    }
+
+    .modal-input-select:focus{
+      outline: none;
+      border-bottom: solid 2px darken( $primary-color, 20% );
+    }
+
+
+  .modal-footer-custom{
+    width: 100%;
+  }
+
+    .modal-button{
+      font-size: 15px;
+      background-color: $primary-color;
+      padding:10px;
+      border: 0px;
+      color: white;
+      border-radius: 2px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      -webkit-transition: all 0.3s linear;
+      -o-transition: all 0.3s linear;
+      -moz-transition: all 0.3s linear;
+      -ms-transition: all 0.3s linear;
+      transition: all 0.3s linear;
+    }
+
+    .modal-button:focus{
+      outline: none;
+    }
+
+    .modal-button.cancel{
+      background-color: #c70000;
+    }
+
+    .modal-button.cancel:hover{ //NON FUNZIONA
+      background-color: darken( #c70000, 20% );
+    }
+
+    .modal-button.confirm{
+      position: absolute;
+      right: 0px;
+      margin-right: 16px;
+    }
+
+    .modal-button.confirm:hover{
+      background-color: darken( $primary-color, 20% );
+    }
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
