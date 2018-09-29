@@ -16,9 +16,10 @@ function btn_insertDeviceClick(){
 
 function getBrandsForDevice(){
     $.ajax({
-        url:"http://localhost:1337/getBrands",
+        url:"php/getBrands.php",
         type:"GET",
         success: function(res){
+            res = JSON.parse(res);
             $("#device_brand option").remove();
             $("#device_brand").append('<option id="brand_0">Nothing</option>');
             $.each(res, function(index,row){                
@@ -33,9 +34,10 @@ function getBrandsForDevice(){
 
 function getCategories(){
     $.ajax({
-        url:"http://localhost:1337/getCategories",
+        url:"php/getCategories.php",
         type:"GET",
         success: function(res){
+            res = JSON.parse(res);
             $("#category option").remove();
             $("#category").append('<option id="category_0">Nothing</option>');
             $.each(res, function(index,row){
@@ -53,12 +55,13 @@ function getDevices(){
     $("#pe_products").remove();
     $("#pe_device_container").append('<div id="pe_products" class="row"></div>');    
     $.ajax({
-        url:"http://localhost:1337/getDevices",
+        url:"php/getDevices.php",
         type:"GET",
         cache: false,
         success: function(res){
-            if(res[0].length>0){
-                $.each(res[0], function(index,row){
+            res = JSON.parse(res);
+            if(res.length>0){
+                $.each(res, function(index,row){
                     $("#pe_products").append(buildCard(row));
                 });
             }else{
@@ -75,13 +78,13 @@ function getDevices(){
 
 function getDeviceByID(deviceid){
     var data = {"deviceid": deviceid};
-    data = JSON.stringify(data);
+    //data = JSON.stringify(data);
     $.ajax({
-        url:"http://localhost:1337/getDeviceByID",
+        url:"php/getDeviceByID.php",
         type:"POST",
         data: data,
-        success: function(res){
-            res = res[0];
+        success: function(res){            
+            res = JSON.parse(res);
             res = res[0];
             $("#modal_deviceSpecifics").ready(function(){
                 $("#pe_deviceSpefics").remove();
@@ -180,14 +183,14 @@ function getDevicesByTextSearch(searchstring){
     $("#pe_products").remove();
     $("#pe_device_container").append('<div id="pe_products" class="row"></div>');
     var data = {"searchstring": searchstring};
-    data = JSON.stringify(data);
     $.ajax({
-        url:"http://localhost:1337/getDevicesByTextSearch",
+        url:"php/getDevicesByTextSearch.php",
         type:"POST",
         data: data,
         success: function(res){
-            if(res[0].length>0){
-                $.each(res[0], function(index,row){
+            res = JSON.parse(res);
+            if(res.length>0){
+                $.each(res, function(index,row){
                     $("#pe_products").append(buildCard(row));
                 });
             }else{
@@ -213,7 +216,6 @@ function insertDevice(){
     var volts = parseFloat(document.getElementById("volts").value);
     var ampere = parseFloat(document.getElementById("ampere").value);
     var resistence = parseFloat(document.getElementById("resistence").value);
-    alert(brand+ "  " + category)
     var data = { 
         "name" : name, 
         "desc" : desc,
@@ -226,9 +228,8 @@ function insertDevice(){
         "ampere" : ampere,
         "resistence" : resistence
     };
-    data = JSON.stringify(data);
     $.ajax({
-        url:"http://localhost:1337/insertDevice",
+        url:"php/insertDevice.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -242,11 +243,10 @@ function insertDevice(){
     });
 }
 
-function deleteDeviceByID(DeviceID){
-    var data = { "DeviceID" : DeviceID};
-    data = JSON.stringify(data);
+function deleteDeviceByID(deviceid){
+    var data = { "deviceid" : deviceid};
     $.ajax({
-        url:"http://localhost:1337/deleteDeviceByID",
+        url:"php/deleteDeviceByID.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -276,8 +276,8 @@ $(document).on("click", ".pe_product_delete", function () {
 });
 
 var last_searchstring_length
-$("#search")[0].addEventListener("keyup", function(){
-    var searchstring = document.getElementById("search").value;    
+$("#device_search")[0].addEventListener("keyup", function(){
+    var searchstring = document.getElementById("device_search").value;    
     if(searchstring.length < last_searchstring_length || last_searchstring_length <= 3){
         if(searchstring.length>=3){
             getDevicesByTextSearch(searchstring);
@@ -293,13 +293,13 @@ $("#search")[0].addEventListener("keyup", function(){
 function buildCard(device){
     var cardclass = "";
     switch (device.RootCategoryID){
-        case 1:
+        case "1":
             cardclass="electronic"
             break;
-        case 2:
+        case "2":
             cardclass="computer"
             break;
-        case 3:
+        case "3":
             cardclass="console"
             break;
         default:
@@ -319,7 +319,7 @@ function buildCard(device){
                             '<div class="card-info">Consumption: '+device.kHw+'</div>'+
                             '<div class="card-divider-small '+cardclass+'"></div>'+
                             '<button class="card-button '+cardclass+'" type="button" data-toggle="modal"  data-backdrop="static" data-target=".product"  onclick="getDeviceByID('+device.DeviceID+')">More Info</button>'+                                                                                          
-                            '<i class="pe_product_delete hvr-grow fa fa-times fa-lg" data-toggle="modal" data-target="#modal_deleteDeviceByID" data-id="'+device.DeviceID+'" data-name="'+device.Name+'"></i>'+
+                            //'<i class="pe_product_delete hvr-grow fa fa-times fa-lg" data-toggle="modal" data-target="#modal_deleteDeviceByID" data-id="'+device.DeviceID+'" data-name="'+device.Name+'"></i>'+
                         '</div>'+
                     '</div>'+
                 '</div>';

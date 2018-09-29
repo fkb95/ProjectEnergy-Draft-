@@ -174,6 +174,7 @@ body {
   -moz-transition: all 0.3s linear;
   -ms-transition: all 0.3s linear;
   transition: all 0.3s linear;
+    z-index: 10000;
 }
 
 /* line 170, custom.scss */
@@ -358,6 +359,38 @@ body {
 /* line 326, custom.scss */
 .modal-button.confirm:hover {
   background-color: #3d3d3d;
+}
+
+/* line 330, custom.scss */
+.row-brand-container {
+  background-color: white;
+  color: #707070;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* line 342, custom.scss */
+.brand-element {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #707070;
+  font-size: 17px;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+/* line 355, custom.scss */
+.brand-element:hover {
+  background-color: #d6d6d6;
 }
 
 /* Small Devices, Tablets */

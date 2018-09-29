@@ -9,13 +9,14 @@ function btn_insertBrandClick(){
 
 function getBrands(){
     $.ajax({
-        url:"http://localhost:1337/getBrands",
+        url:"php/getBrands.php",
         type:"GET",
         success: function(res){
+            res = JSON.parse(res);
             $("#pe_brands").remove();
-            $("#pe_brands_container").append('<div id="pe_brands" class="row"></div>   ');
-            $.each(res, function(index,row){                
-                $("#pe_brands").append(row.BrandID+') <strong>'+row.Name+'</strong><br>'+row.Description+'<br><br><a href="'+row.Website+'">'+row.Website+'</a><br><br><br><br>');
+            $("#pe_brands_container").append('<div id="pe_brands" class="row row-brand-container"></div>   ');
+            $.each(res, function(index,row){
+                $("#pe_brands").append(buildBrand(row));
             });         
         },
         error:function(error){
@@ -27,17 +28,17 @@ function getBrands(){
 function getBrandsByTextSearch(searchstring){
     $("#pe_brands").addClass("animated fadeOut");
     $("#pe_brands").remove();
-    $("#pe_brands_container").append('<div id="pe_brands" class="row"></div>');
+    $("#pe_brands_container").append('<div id="pe_brands" class="row row-brand-container"></div>');
     var data = {"searchstring": searchstring};
-    data = JSON.stringify(data);
     $.ajax({
-        url:"http://localhost:1337/getBrandsByTextSearch",
+        url:"php/getBrandsByTextSearch.php",
         type:"POST",
         data: data,
         success: function(res){
-            if(res[0].length>0){
-                $.each(res[0], function(index,row){
-                    $("#pe_brands").append(row.BrandID+') <strong>'+row.Name+'</strong><br>'+row.Description+'<br><br><a href="'+row.Website+'">'+row.Website+'</a><br><br><br><br>');
+            res = JSON.parse(res);
+            if(res.length>0){
+                $.each(res, function(index,row){
+                    $("#pe_brands").append(buildBrand(row));
                 });
             }else{
                 $("#pe_brands").append('<h4>No brand found... :( </h4>');
@@ -57,9 +58,8 @@ function insertBrand(){
         "desc" : document.getElementById("desc").value,
         "webs" : document.getElementById("webs").value
     };
-    data = JSON.stringify(data);
     $.ajax({
-        url:"http://localhost:1337/insertBrand",
+        url:"php/insertBrand.php",
         type:"POST",
         data: data,
         success: function(res){
@@ -87,3 +87,10 @@ $("#search")[0].addEventListener("keyup", function(){
     }    
     last_searchstring_length = searchstring.length
 });
+
+function buildBrand(brand){
+    var brand='<div class="col-xs-12 col-sm-6 col-md-4 no-padding">'+
+                    '<div class="brand-element"><a href="'+brand.Website+'">'+brand.Name+'</a></div>'+
+                '</div>';
+    return brand;
+}

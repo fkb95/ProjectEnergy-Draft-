@@ -21,19 +21,10 @@
         <link href="css/hover.css" rel="stylesheet" />
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" />
-        <!--<link href="css/palette.css" rel="stylesheet">
-        <link href="css/opensans.css" rel="stylesheet"/>
-            MATERIALBOOTSTRAP
-            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-            <link rel="stylesheet" href="css/material-fonts.css" type="text/css">
-            <link href="css/bootstrap-material-design.css" rel="stylesheet" />
-            <link href="css/ripples.min.css" rel="stylesheet" />
-            -->
-        <!--JS-->
         <link href="css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" href="Fonts/stylesheet.css" type="text/css" charset="utf-8" />
-        
-        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <link href="fonts/stylesheet.css" type="text/css" charset="utf-8" rel="stylesheet" />
+        <!--JS-->
+        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/projectenergy.js"></script>
     </head>
@@ -49,28 +40,130 @@
                 <span class="icon-bar"></span>
             </div>
                 <ul class="nav navbar-nav navbar-collapse collapse" role="tablist"  id="navbar-main">
-                    <li class="active"><a href="#Home" aria-controls="Devices" role="tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i> Home</a></li>
-                    <li><a href="#Brands" aria-controls="Brands" role="tab" data-toggle="tab"><i class="fa fa-search fa-fw"></i> Brands</a></li>
+                    <li><a href="#Home" aria-controls="Devices" role="tab" data-toggle="tab"><i class="fa fa-home fa-fw"></i> Home</a></li>
                     <li id="li_devices"><a href="#Devices" aria-controls="Devices" role="tab" data-toggle="tab"><i class="fa fa-hdd-o fa-fw"></i> Devices</a></li>
-                    <li><a href="#internal" aria-controls="internal" role="tab" data-toggle="tab"><i class="fa fa-hdd-o fa-fw"></i> (PE)internal</a></li>
+                    <li><a href="#Brands" aria-controls="Brands" role="tab" data-toggle="tab"><i class="fa fa-apple fa-fw"></i> Brands</a></li>
+                    <li class="active"><a href="#internal" aria-controls="internal" role="tab" data-toggle="tab"><i class="fa fa-hdd-o fa-fw"></i> (PE)internal</a></li>
                 </ul>
             </div>
-        </nav>
-        
+        </nav>        
         <div class="content">
             <div class="header-container">
-                <h1 class="header-logo">ProjectEnergy</h1>
+                <h1 class="header-logo hidden-xs">ProjectEnergy</h1>
+                <h1 class="header-logo visible-xs">P<i class="fa fa-power-off fa-fw"></i>E</h1>
             </div>
             <div class="tab-content">
                 <!-- HOME -->
-                <div role="tabpanel" class="tab-pane active animated fadeIn text-center" id="Home"></div>
-                <!-- SCAN -->
-                <div role="tabpanel" class="tab-pane animated fadeIn text-center" id="Brands"></div>
+                <div role="tabpanel" class="tab-pane  animated fadeIn text-center" id="Home"></div>
                 <!-- DEVICES -->
                 <div role="tabpanel" class="tab-pane  animated fadeIn text-center" id="Devices"></div>
+                <!-- BRANDS -->
+                <div role="tabpanel" class="tab-pane animated fadeIn text-center" id="Brands"></div>                
                 <!-- PE -->
-                <div role="tabpanel" class="tab-pane  animated fadeIn text-center" id="internal"></div>
+                <div role="tabpanel" class="tab-pane active animated fadeIn text-center" id="internal"></div>
             </div>
-        </div>		
+        </div>
+        
+        <div id="modal_insertBrand" class="modal fade add-brand" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content add-brand">
+                <div class="modal-body">
+                  <div class="modal-header-custom">
+                    <p class="modal-title">Add new brand</p>
+                  </div>
+                  <div class="modal-body-custom">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6">
+                        <input class="modal-input-text" type="text" placeholder="Name" id="name">
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+                        <input class="modal-input-text" type="text" placeholder="Website" id="webs">
+                      </div>
+                      <div class="col-xs-12 col-sm-12">
+                          <textarea class="modal-input-text" resizable="false" rows="4" maxlenght="5000" type="text" placeholder="Description" id="desc"></textarea>
+                      </div>
+                  </div>
+                  <div class="modal-footer-custom">
+                    <button class="modal-button cancel" type="button" data-dismiss="modal">Close</button>
+                    <button class="modal-button confirm" type="button" onclick="btn_insertBrandClick()" data-dismiss="modal">Insert</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            
+        <!-- Modal Aggiunta Prodotto-->
+        <div id="modal_insertDevice" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content add-product">
+                    <div class="modal-body">
+                        <div class="modal-header-custom">
+                            <p class="modal-title">Add a product</p>
+                        </div>
+                        <div class="modal-body-custom">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="text" placeholder="Name" id="device_name">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="text" placeholder="Description" id="device_desc">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <select class="modal-input-select" id="device_brand"></select>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <select class="modal-input-select" id="category"></select>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="number" placeholder="Min Watt" id="minwatt" value="0">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="number" placeholder="Max Watt" id="maxwatt" value="0">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="number" placeholder="kHw" id="khw" value="0">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="number" placeholder="Volts" id="volts" value="0">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="number" placeholder= "Ampere" id="ampere" value="0">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input class="modal-input-text" type="number" placeholder="Resistence" id="resistence" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer-custom">
+                            <button class="modal-button cancel" type="button" data-dismiss="modal">Close</button>
+                            <button class="modal-button confirm" type="button" onclick="btn_insertDeviceClick()" data-dismiss="modal">Insert</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_deleteDeviceByID" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-horizontal">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal_deviceSpecifics" class="modal fade product" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content product">
+                    <div class="modal-body" id="pe_deviceSpefics"></div>
+                </div>
+            </div>
+        </div>
+            
     </body>
 </html>

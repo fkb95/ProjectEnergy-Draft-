@@ -1,9 +1,8 @@
 html, body{
     margin:0;
     padding:0;
-    font-family: "open_sansregular";
-    background: #1a1a1a;
-    color:#646464; 
+    height:100%;
+    width:100%;
 }
 
 .navbar{
@@ -31,76 +30,6 @@ html, body{
     padding-bottom:20px;
 }
 
-.jumbotron{
-    margin:0px;
-}
-
-/*.row{
-    margin-left:0;
-    margin-right:0;
-}*/
-
-#btn_modal_insertDevice{
-    /*background-color: #64DD17;
-    border-radius: 999em;
-    width: 52px;
-    height: 52px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    border:0;
-    line-height: 1;
-    font-size: 36px;
-    position: absolute;
-    top:245px;
-    right:200px;
-    cursor: pointer;*/
-}
-
-#btn_getDevices{
-    background-color: whitesmoke;
-    border-radius: 999em;
-    width: 52px;
-    height: 52px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    border:0;
-    line-height: 1;
-    font-size: 36px;
-    position: absolute;
-    top:245px;
-    right:120px;
-    cursor: pointer;
-}
-
-/*.modal-body button{
-    margin:20px;
-    min-width: 120px;
-}*/
-
-#search{
-    /*height:60px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #3a3a3a;
-    color:#646464;
-    border:0;
-    font-size:18px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);*/
-}
-
-/*.pe_products{
-    margin-top:40px;
-}*/
-
-/*.pe_product_container{
-    background-color: #efefef;
-    height:200px;
-    border-radius: 0.5em;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    width:100%;
-    margin-bottom:20px;
-    cursor:pointer;
-}*/
-
 .pe_product_delete{
     position: absolute;
     top:5px;
@@ -114,21 +43,17 @@ html, body{
     height:2px;
 }
 
-.pe_logo{
-    font-size: 70px;
-    line-height: 120px;
-    color: #6b696a;
-}
-
 .pe_presentation_div{
-    height:600px;
+    min-height:100%;
     width:100%;
     color: white;
-    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.26);
+    
+    padding-bottom: 100px;
 }
 
 .pe_presentation_div h2{
     font-size: 35px;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.26);
 }
 
 .pe_presentation_div .container{
@@ -165,3 +90,11 @@ html, body{
 .pe_internal_div h4{
     color:white;
 }
+
+#internal{
+    color:white !important; 
+}
+
+#internal .panel{
+    color:black;
+} 
